@@ -16,7 +16,8 @@ module.exports = function(grunt) {
 
     });
     grunt.loadNpmTasks('grunt-contrib-jshint');
-
+    grunt.loadNpmTasks('grunt-karma');
+    grunt.loadNpmTasks('grunt-protractor-runner');
     grunt.loadNpmTasks('grunt-http-server');
     grunt.loadNpmTasks('grunt-contrib-watch');
 
@@ -24,4 +25,5 @@ module.exports = function(grunt) {
     grunt.registerTask('nostart', ['unit-test']);
     grunt.registerTask('e2e-test', ['jshint:end2End']);
     grunt.registerTask('default', ['nostart', 'http-server:dev', 'watch', 'e2e-test']);
+
 };

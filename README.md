@@ -1,51 +1,15 @@
-npm # angular-seed — the seed for AngularJS apps
-
-This project is an application skeleton for a typical [AngularJS](http://angularjs.org/) web app.
-You can use it to quickly bootstrap your angular webapp projects and dev environment for these
-projects.
-
-The seed contains a sample AngularJS application and is preconfigured to install the Angular
-framework and a bunch of development and testing tools for instant web development gratification.
-
-The seed app doesn't do much, just shows how to wire two controllers and views together.
-
-
-## Getting Started
-
-To get you started you can simply clone the angular-seed repository and install the dependencies:
+### What is this?
+This is an example set of test for demo purposes. In comparison to the real app, the build process is
+simplified by having angular code directly in the app, so there are no steps concating that they are
+just referenced directly. Additionally, there is no styling, the UI is kept to a bare minimum so you
+can see what it does rather than being fancy. t
+The main thing here are the unit and end to end test - designed to demo how these work.
 
 ### Prerequisites
 
-You need git to clone the angular-seed repository. You can get git from
-[http://git-scm.com/](http://git-scm.com/).
-
 We also use a number of node.js tools to initialize and test angular-seed. You must have node.js and
 its package manager (npm) installed.  You can get them from [http://nodejs.org/](http://nodejs.org/).
-
-### Clone angular-seed
-
-Clone the angular-seed repository using [git][git]:
-
-```
-git clone https://github.com/angular/angular-seed.git
-cd angular-seed
-```
-
-If you just want to start a new project without the angular-seed commit history then you can do:
-
-```bash
-git clone --depth=1 https://github.com/angular/angular-seed.git <your-project-name>
-```
-
-The `depth=1` tells git to only pull down one commit worth of historical data.
-
-### Install Dependencies
-
-We have two kinds of dependencies in this project: tools and angular framework code.  The tools help
-us manage and test the application.
-
-* We get the tools we depend upon via `npm`, the [node package manager][npm].
-* We get the angular code via `bower`, a [client-side code package manager][bower].
+You will need the Grunt CLI install, The Karma CLI and PhantomJS installed on your machine. Google for these.
 
 We have preconfigured `npm` to automatically run `bower` so we can simply do:
 
@@ -72,38 +36,32 @@ this server is:
 npm start
 ```
 
-Now browse to the app at `http://localhost:8000/app/index.html`.
+Now browse to the app at `http://localhost:8000/`.
 
 
 
 ## Directory Layout
 
 ```
+.grunt/                 --> the files for the indivdual grunt tasks
 app/                    --> all of the source files for the application
-  app.css               --> default stylesheet
-  components/           --> all app specific modules
-    version/              --> version related components
-      version.js                 --> version module declaration and basic "version" value service
-      version_test.js            --> "version" value service tests
-      version-directive.js       --> custom directive that returns the current app version
-      version-directive_test.js  --> version directive tests
-      interpolate-filter.js      --> custom interpolation filter
+  bower_components/     --> The bower components used by the app - angular and angular mocks
+  scripts/              --> scripts for the angular app
+      directives/            --> angular directives are placed here
+      filters/               --> angular filters are placed here
+      services/              --> angular services are placed here
+      modules.js             --> The modules are initialised in this file
+      controller.js          --> The controller lives here
       interpolate-filter_test.js --> interpolate filter tests
-  view1/                --> the view1 view template and logic
-    view1.html            --> the partial template
-    view1.js              --> the controller logic
-    view1_test.js         --> tests of the controller
-  view2/                --> the view2 view template and logic
-    view2.html            --> the partial template
-    view2.js              --> the controller logic
-    view2_test.js         --> tests of the controller
-  app.js                --> main application module
   index.html            --> app layout file (the main html template file of the app)
-  index-async.html      --> just like index.html, but loads js files asynchronously
+bower.json            --> bower config file showing which bower components are needed
+package.json          --> information about the current package, including its npm dependencies
 karma.conf.js         --> config file for running unit tests with Karma
-e2e-tests/            --> end-to-end tests
-  protractor-conf.js    --> Protractor config file
-  scenarios.js          --> end-to-end scenarios to be run by Protractor
+tests/                --> test code folder
+  e2e-tests           --> contains the code for the end to end tests
+  unit-tests          --> contains the code for the unit tests
+    mocks.js              --> The mocks used by the unit tests.
+
 ```
 
 ## Testing
@@ -112,14 +70,12 @@ There are two kinds of tests in the angular-seed application: Unit tests and End
 
 ### Running Unit Tests
 
-The angular-seed app comes preconfigured with unit tests. These are written in
-[Jasmine][jasmine], which we run with the [Karma Test Runner][karma]. We provide a Karma
-configuration file to run them.
+These are written in
+[Mocha] and use the [chai] assertion library, which we run with the [Karma Test Runner][karma]. We provide a Karma
+configuration file to run them and define what it executed in the grunt task
 
 * the configuration is found at `karma.conf.js`
-
-
-
+* the grunt tasks can be found in `.grunt/grunt-karma-tasks.js` and `.grunt/grunt-protractor-runner.js`
 
 
 To start the server run
