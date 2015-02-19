@@ -20,6 +20,8 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-http-server');
     grunt.loadNpmTasks('grunt-contrib-watch');
 
-    grunt.registerTask('nostart', ['jshint'])
-    grunt.registerTask('default', ['nostart', 'http-server:dev', 'watch']);
+    grunt.registerTask('unit-test', ['jshint:gruntfiles', 'jshint:unit', 'jshint:mainApp']);
+    grunt.registerTask('nostart', ['unit-test']);
+    grunt.registerTask('e2e-test', ['jshint:end2End']);
+    grunt.registerTask('default', ['nostart', 'http-server:dev', 'watch', 'e2e-test']);
 };
