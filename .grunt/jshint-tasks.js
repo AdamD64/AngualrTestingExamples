@@ -16,7 +16,7 @@
         },
 
         unit: {
-            src: ['./tests/unit/**/*.js'],
+            src: ['./tests/unit-tests/**/*.js'],
             options: {
                 node: true,
                 "globals"   : {

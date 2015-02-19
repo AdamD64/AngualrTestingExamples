@@ -1,17 +1,16 @@
-var jshintTasks = require('./.grunt/jshint-tasks');
+var jshintTasks          = require('./.grunt/jshint-tasks');
+var gruntKarmaTasks      = require('./.grunt/grunt-karma-tasks');
 var gruntHttpServerTasks = require('./.grunt/grunt-http-server-tasks');
-var watchTask = require('./.grunt/grunt-contrib-watch-tasks');
+var watchTask            = require('./.grunt/grunt-contrib-watch-tasks');
 
 
 module.exports = function(grunt) {
-    grunt.log.writeln("Initialising");
     grunt.initConfig({
-        pkg: grunt.file.readJSON('package.json'),
-        jshint: jshintTasks,
-        //mochaTest: unitTestTask,
-        //karma: karmaTask,
+        pkg:            grunt.file.readJSON('package.json'),
+        jshint:         jshintTasks,
+        karma:          gruntKarmaTasks,
         'http-server' : gruntHttpServerTasks,
-        watch: watchTask
+        watch:          watchTask
         //protractor: protractorTask,
 
     });
@@ -21,9 +20,8 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-http-server');
     grunt.loadNpmTasks('grunt-contrib-watch');
 
-    grunt.registerTask('unit-test', ['jshint:gruntfiles', 'jshint:unit', 'jshint:mainApp']);
+    grunt.registerTask('unit-test', ['jshint:gruntfiles', 'jshint:unit', 'jshint:mainApp', 'karma']);
     grunt.registerTask('nostart', ['unit-test']);
     grunt.registerTask('e2e-test', ['jshint:end2End']);
     grunt.registerTask('default', ['nostart', 'http-server:dev', 'watch', 'e2e-test']);
-
 };
