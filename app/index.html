@@ -2,14 +2,69 @@
 <html lang="en" ng-app="myApp">
 <head>
   <title>Angular Unit Testing Example</title>
+    <style>
+        td.gameSquare {
+            border: #000 solid 1px;
+            height: 50px;
+            width: 50px
+        }
+    </style>
 </head>
 <body ng-controller="myController">
-  <h1>League Results</h1>
-  <div ng-view></div>
+  <h1>Noughts And Crosses Tester</h1>
+  <div>
+      <p>The game is random vs random, X is always the first player</p>
+  </div>
+  <table>
+      <tbody>
+        <tr>
+            <th>draws:</th>
+            <td>{{viewModel.getNumberOfDraws()}}</td>
+        </tr>
+        <tr>
+            <th>X wins:</th>
+            <td>{{viewModel.getNumberOfPlayer1Wins()}}</td>
+        </tr>
+        <tr>
+            <th>O wins:</th>
+            <td>{{viewModel.getNumberOfPlayer2Wins()}}</td>
+        </tr>
+        <tr>
+            <th>total</th>
+            <th>{{viewModel.getTotalGamesPlayed()}}</td>
+        </tr>
+      </tbody>
+  </table>
+  <h2>Last Game:</h2>
+  <table>
+      <tbody>
+      <tr>
+          <td class="gameSquare"><game-square number="0" /></td>
+          <td class="gameSquare"><game-square number="1" /></td>
+          <td class="gameSquare"><game-square number="2" /></td>
+      </tr>
+      <tr>
+          <td class="gameSquare"><game-square number="3" /></td>
+          <td class="gameSquare"><game-square number="4" /></td>
+          <td class="gameSquare"><game-square number="5" /></td>
+      </tr>
+      <tr>
+          <td class="gameSquare"><game-square number="6" /></td>
+          <td class="gameSquare"><game-square number="7" /></td>
+          <td class="gameSquare"><game-square number="8" /></td>
+      </tr>
+      </tbody>
+  </table>
+  <div>
+      <span ng-click="getNextResult()">Next</span> <span ng-click="resetStatistics()">Reset</span>
+  </div>
   <script src="bower_components/angular/angular.js"></script>
   <script src="scripts/modules.js"></script>
   <script src="scripts/services/api-proxy/api-constants.js"></script>
   <script src="scripts/services/api-proxy/api-proxy.js"></script>
+  <script src="scripts/services/model/view-model.js"></script>
+  <script src="scripts/filters/number-to-token.js"></script>
+  <script src="scripts/directives/game-square.js"></script>
   <script src="scripts/controller.js"></script>
 </body>
 </html>

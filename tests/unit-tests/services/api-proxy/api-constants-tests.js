@@ -13,7 +13,7 @@
             //Arguably this should not be a unit test - if the service being moved isn't relevant to the
             //the functionality.
             //I like to keep tests like these as they will break if a dev temporarily moves the code
-            expect(constants.url).to.equal('https://api.statsfc.com/crowdscores/table.php?competition=EPL&key=VsIkrxOyDBTSi1KkdIl7gdFb5dqjvOihsJ1PxVnN');
+            expect(constants.url).to.equal('http://EUTAVEG-01.tombola.emea:35000/api/v1.0/newgame');
         });
     });
 }());

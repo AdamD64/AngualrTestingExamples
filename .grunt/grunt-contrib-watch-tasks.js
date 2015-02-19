@@ -2,8 +2,8 @@
     'use strict';
     module.exports = {
         mainappjs: {
-            files: './main-app/app/scripts/**/*.js',
-            tasks: ['jshint:mainapp']
+            files: './app/scripts/**/*.js',
+            tasks: ['jshint:mainApp', 'karma']
         },
         gruntjs: {
             files: ['./gruntfile.js', './.grunt/*.js'],
@@ -11,7 +11,7 @@
         },
         unittests:{
             files: ['./tests/unit-tests/**/*.js'],
-            tasks: ['jshint:unit']
+            tasks: ['jshint:unit', 'karma']
         },
 
         e2e:{

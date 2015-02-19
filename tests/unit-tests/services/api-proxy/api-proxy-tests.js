@@ -16,14 +16,14 @@
             });
         });
 
-        it('Call to services returns table when OK response', function(){
+        it('Call to service returns dat when response is OK', function(){
             $httpBackend
-                .expectGET(mocks.apiConsantsMock.url)
-                .respond({ table:['football results here']});
+                .expectPOST(mocks.apiConsantsMock.url)
+                .respond({ data:'foo data'});
 
-            apiProxy.getFootballResults()
+            apiProxy.getResults()
                 .then(function(results){
-                    expect(results).to.deep.equal(['football results here']);
+                    expect(results).to.deep.equal({ data:'foo data'});
                 })
                 .catch(function(errorData){
                     expect(errorData).to.not.be.ok();
@@ -32,14 +32,14 @@
         });
 
 
-        it('Call to services returns error data when 404', function(){
+        it('Call to service returns error data when 404d', function(){
             $httpBackend
-                .expectGET(mocks.apiConsantsMock.url)
+                .expectPOST(mocks.apiConsantsMock.url)
                 .respond(function(){
                    return [404, 'Not Found', {}];
                 });
 
-            apiProxy.getFootballResults()
+            apiProxy.getResults()
                 .then(function(results){
                     expect(results).to.not.equal('unexpected sucessful repsonse from server');
                 })

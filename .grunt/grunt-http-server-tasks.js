@@ -25,6 +25,7 @@
 
             // run in parallel with other tasks
             runInBackground: true
+
         }
     };
 }());

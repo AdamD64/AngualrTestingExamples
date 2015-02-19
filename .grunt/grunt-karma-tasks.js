@@ -9,7 +9,7 @@
                     './app/bower_components/angular-mocks/angular-mocks.js',
                     './app/scripts/modules.js',
                     './app/scripts/controller.js',
-                    './app/scripts/services/api-proxy/*.js',
+                    './app/scripts/services/**/*.js',
                     './tests/unit-tests/**/*.js']
             }
         }
