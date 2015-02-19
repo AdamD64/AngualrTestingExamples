@@ -1,7 +1,7 @@
 (function(){
     'use strict';
     angular.module('myApp.services.apiProxy')
-        .service('apiProxy', function($http, apiConstants){
+        .service('apiProxy', function($http){
 
         });
 }());
