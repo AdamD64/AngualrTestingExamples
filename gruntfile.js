@@ -2,7 +2,6 @@ var jshintTasks          = require('./.grunt/jshint-tasks');
 var gruntKarmaTasks      = require('./.grunt/grunt-karma-tasks');
 var gruntHttpServerTasks = require('./.grunt/grunt-http-server-tasks');
 var watchTask            = require('./.grunt/grunt-contrib-watch-tasks');
-var protractorTask       = require('./.grunt/grunt-protractor-runner-tasks');
 
 module.exports = function(grunt) {
     grunt.initConfig({
@@ -10,9 +9,7 @@ module.exports = function(grunt) {
         jshint:         jshintTasks,
         karma:          gruntKarmaTasks,
         'http-server' : gruntHttpServerTasks,
-        watch:          watchTask,
-        protractor:     protractorTask
-
+        watch:          watchTask
     });
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-karma');
@@ -23,6 +20,5 @@ module.exports = function(grunt) {
 
     grunt.registerTask('unit-test', ['jshint:gruntfiles', 'jshint:unit', 'jshint:mainApp', 'karma']);
     grunt.registerTask('nostart', ['unit-test']);
-    grunt.registerTask('e2e-test', ['jshint:end2End']);
-    grunt.registerTask('default', ['nostart', 'http-server:dev', 'watch', 'e2e-test']);
+    grunt.registerTask('default', ['nostart', 'http-server:dev', 'watch']);
 };

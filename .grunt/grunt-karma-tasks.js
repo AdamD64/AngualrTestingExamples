@@ -10,6 +10,8 @@
                     './app/scripts/modules.js',
                     './app/scripts/controller.js',
                     './app/scripts/services/**/*.js',
+                    './app/scripts/filters/*.js',
+                    './app/scripts/directives/*.js',
                     './tests/unit-tests/**/*.js']
             }
         }
