@@ -33,7 +33,7 @@
             expect(element.attr('number')).to.be.equal('2');
             expect(element[0].children.length).to.equal(1);
             var innerElement  = element[0].children[0];
-            expect(innerElement.toString()).to.be.equal('[object HTMLSpanElement]');
+            expect(innerElement.toString()).to.be.equal('[object HTMLElement]');
             expect(innerElement.innerHTML).to.be.equal('1');
         });
     });
