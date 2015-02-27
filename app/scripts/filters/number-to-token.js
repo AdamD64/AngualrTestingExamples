@@ -1,16 +1,15 @@
-(function(){
-    'use strict';
+//(function(){
+//    'use strict';
     angular.module('myApp.filters')
         .filter('numberToToken', function(){
-            return function(number){
-                if(number == 1){
+            return function(input){
+                if(input == 1){
                     return 'X';
                 }
-                else if(number == 2){
+                else if(input == 2){
                     return 'O';
                 }
                 return '';
-
             };
         });
-}());
+//}());
